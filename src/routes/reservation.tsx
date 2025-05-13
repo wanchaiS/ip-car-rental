@@ -67,7 +67,6 @@ export default function Reservation() {
     const allFieldsFilled = Object.values(reservation.form).every(value => 
       value !== null && value !== undefined && value !== ''
     );
-    console.log('Object.keys(errors)', Object.keys(errors))
     setIsFormValid(!hasErrors && allFieldsFilled);
   }, [errors, reservation.form]);
 
