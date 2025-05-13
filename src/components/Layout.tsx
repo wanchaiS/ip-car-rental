@@ -10,7 +10,7 @@ const Layout = ({ hasReservation = false, children }: LayoutProps) => {
   return (
     <div className="min-h-screen flex flex-col bg-[#f6fbfc]">
       {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-10">
+      <header className="bg-white shadow-sm sticky top-0 z-9">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-5">
           <Link to="/home" className="flex items-center space-x-3 group">
             <span className="inline-block bg-blue-600 rounded-full p-2">
