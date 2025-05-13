@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { reserveCar } from '../api/cars';
 import useLocalStorage from '../hooks/useLocalStorage';
 import type { Reservation } from '../types/core.types';
@@ -173,7 +173,7 @@ export default function Reservation() {
           <div className="mt-6">
             <span className="inline-block px-6 py-2 bg-green-100 text-green-800 rounded-lg font-semibold">Order Status: Confirmed</span>
             <div className="mt-4">
-              <a href="/home" className="inline-block px-6 py-2 bg-blue-700 text-white rounded-lg font-semibold hover:bg-blue-800 transition">Back to Home</a>
+              <Link to="/home" className="inline-block px-6 py-2 bg-blue-700 text-white rounded-lg font-semibold hover:bg-blue-800 transition">Back to Home</Link>
             </div>
           </div>
         )}
