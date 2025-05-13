@@ -95,7 +95,11 @@ export default function Reservation() {
   }
 
   function handleCancel() {
-    setReservation(prev => ({ ...prev, car: null }));
+    // Clear the form and local storage when canceling
+    setReservation({
+      car: null,
+      form: { name: '', email: '', phone: '', driverLicense: '', startDate: '', rentalPeriod: 0 }
+    });
     navigate('/');
   }
 
@@ -104,6 +108,11 @@ export default function Reservation() {
       if (car && car.vin) {
         await reserveCar(car.vin);
         setConfirmed(true);
+        // Clear the form and local storage after successful confirmation
+        setReservation({
+          car: null,
+          form: { name: '', email: '', phone: '', driverLicense: '', startDate: '', rentalPeriod: 0 }
+        });
       }
     } catch (error) {
       if (error instanceof Error && error.message === 'Car is no longer available for reservation') {
