@@ -3,7 +3,7 @@ import Layout from './components/Layout';
 import Main from './routes/main';
 import Reservation from './routes/reservation';
 
-// Get the base URL from the environment or use the repository nam
+// Get the base URL from the environment or use the repository name
 const baseUrl = import.meta.env.BASE_URL || '/ip-car-rental/';
 
 const router = createBrowserRouter([
