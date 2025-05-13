@@ -20,7 +20,6 @@ export default function Main() {
     if (cars) setFilteredCars(cars);
   }, [cars]);
 
-  console.log('here')
   // Generate search suggestions
   const searchSuggestions = (cars || []).reduce((suggestions, car) => {
     const searchTerms = [
