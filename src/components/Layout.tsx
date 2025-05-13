@@ -12,7 +12,7 @@ const Layout = ({ hasReservation = false, children }: LayoutProps) => {
       {/* Header */}
       <header className="bg-white shadow-sm sticky top-0 z-9">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-5">
-          <Link to="/home" className="flex items-center space-x-3 group">
+          <Link to="/" className="flex items-center space-x-3 group">
             <span className="inline-block bg-blue-600 rounded-full p-2">
               {/* Simple car icon SVG */}
               <Car color="white" />
@@ -20,7 +20,7 @@ const Layout = ({ hasReservation = false, children }: LayoutProps) => {
             <span className="text-2xl font-bold text-blue-700 group-hover:text-blue-900 transition">CarRental</span>
           </Link>
           <nav className="flex items-center space-x-8">
-            <Link to="/home" className="text-gray-700 hover:text-blue-700 font-medium transition">Home</Link>
+            <Link to="/" className="text-gray-700 hover:text-blue-700 font-medium transition">Home</Link>
             <div className="relative">
               <Link to="/reservation" className="text-gray-700 hover:text-blue-700 font-medium transition">Reservation</Link>
               {hasReservation && (

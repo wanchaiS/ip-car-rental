@@ -97,7 +97,7 @@ export default function Reservation() {
 
   function handleCancel() {
     setReservation(prev => ({ ...prev, car: null }));
-    navigate('/home');
+    navigate('/');
   }
 
   async function handleConfirmOrder() {
@@ -173,7 +173,7 @@ export default function Reservation() {
           <div className="mt-6">
             <span className="inline-block px-6 py-2 bg-green-100 text-green-800 rounded-lg font-semibold">Order Status: Confirmed</span>
             <div className="mt-4">
-              <Link to="/home" className="inline-block px-6 py-2 bg-blue-700 text-white rounded-lg font-semibold hover:bg-blue-800 transition">Back to Home</Link>
+              <Link to="/" className="inline-block px-6 py-2 bg-blue-700 text-white rounded-lg font-semibold hover:bg-blue-800 transition">Back to Home</Link>
             </div>
           </div>
         )}
