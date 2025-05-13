@@ -108,11 +108,6 @@ export default function Reservation() {
       if (car && car.vin) {
         await reserveCar(car.vin);
         setConfirmed(true);
-        // Clear the form and local storage after successful confirmation
-        setReservation({
-          car: null,
-          form: { name: '', email: '', phone: '', driverLicense: '', startDate: '', rentalPeriod: 0 }
-        });
       }
     } catch (error) {
       if (error instanceof Error && error.message === 'Car is no longer available for reservation') {
@@ -181,7 +176,13 @@ export default function Reservation() {
           <div className="mt-6">
             <span className="inline-block px-6 py-2 bg-green-100 text-green-800 rounded-lg font-semibold">Order Status: Confirmed</span>
             <div className="mt-4">
-              <button onClick={() => navigate('/')} className="inline-block px-6 py-2 bg-blue-700 text-white rounded-lg font-semibold hover:bg-blue-800 transition">Back to Home</button>
+              <button onClick={() => {
+                setReservation({
+                  car: null,
+                  form: { name: '', email: '', phone: '', driverLicense: '', startDate: '', rentalPeriod: 0 }
+                });
+                navigate('/');
+              }} className="inline-block px-6 py-2 bg-blue-700 text-white rounded-lg font-semibold hover:bg-blue-800 transition">Back to Home</button>
             </div>
           </div>
         )}
