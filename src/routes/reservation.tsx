@@ -68,7 +68,9 @@ export default function Reservation() {
     const allFieldsFilled = Object.values(reservation.form).every(value => 
       value !== null && value !== undefined && value !== ''
     );
-    setIsFormValid(!hasErrors && allFieldsFilled);
+    // rentalPeriod must be > 0
+    const rentalPeriodValid = Number(reservation.form.rentalPeriod) > 0;
+    setIsFormValid(!hasErrors && allFieldsFilled && rentalPeriodValid);
   }, [errors, reservation.form]);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -149,7 +151,7 @@ export default function Reservation() {
     );
   }
 
-  const totalPrice = (car.pricePerDay ?? 0) * Number(reservation.form.rentalPeriod || 1);
+  const totalPrice = (car.pricePerDay ?? 0) * Number(reservation.form.rentalPeriod || 0);
 
   if (submitted) {
     return (
@@ -250,8 +252,8 @@ export default function Reservation() {
           />
           {errors.driverLicense && <p className="text-red-500 text-sm mt-1">{errors.driverLicense}</p>}
         </div>
-        <div className="flex gap-4">
-          <div className="flex-1">
+        <div className="flex flex-col md:flex-row gap-4">
+          <div className="flex-1 relative">
             <label className="block text-sm font-medium text-gray-700 mb-1">Start Date</label>
             <input 
               name="startDate" 
@@ -259,7 +261,7 @@ export default function Reservation() {
               value={reservation.form.startDate} 
               onChange={handleChange} 
               min={new Date().toISOString().split('T')[0]} 
-              className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400 ${errors.startDate ? 'border-red-500' : 'border-gray-300'}`}
+              className={`w-full md:max-w-[180px] px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-400 ${errors.startDate ? 'border-red-500' : 'border-gray-300'} pr-10`}
             />
             {errors.startDate && <p className="text-red-500 text-sm mt-1">{errors.startDate}</p>}
           </div>
