@@ -1,3 +1,4 @@
+import { CalendarDays, Fuel, Gauge } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { reserveCar } from '../api/cars';
@@ -193,14 +194,14 @@ export default function Reservation() {
   return (
     <div className="max-w-3xl mx-auto bg-white rounded-xl shadow-lg p-8 mt-8 flex flex-col md:flex-row gap-8">
       {/* Car Info */}
-      <div className="md:w-1/2 flex flex-col items-center">
+      <div className="md:w-1/2 flex flex-col">
         <img src={car.image ?? ''} alt={car.carModel ?? ''} className="w-[400px] h-[400px] object-cover rounded-lg mb-4" />
         <h2 className="text-xl font-bold mb-1">{car.brand} {car.carModel}</h2>
         <div className="text-gray-500 text-sm mb-2">{car.carType}</div>
         <div className="flex flex-wrap gap-3 text-xs text-gray-400 mb-3">
-          <span>📅 {car.yearOfManufacture}</span>
-          <span>🛣️ {car.mileage}</span>
-          <span>⛽ {car.fuelType}</span>
+          <span className="flex items-center gap-1"><CalendarDays className="w-4 h-4 text-gray-500" /> {car.yearOfManufacture}</span>
+          <span className="flex items-center gap-1"><Gauge className="w-4 h-4 text-gray-500" /> {car.mileage}</span>
+          <span className="flex items-center gap-1"><Fuel className="w-4 h-4 text-gray-500" /> {car.fuelType}</span>
         </div>
         <p className="text-gray-600 text-sm mb-2">{car.description}</p>
         <div className="text-blue-700 font-bold text-lg">${car.pricePerDay}/day</div>

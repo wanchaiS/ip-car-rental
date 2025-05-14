@@ -1,3 +1,4 @@
+import { CalendarDays, Fuel, Gauge } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCars } from '../hooks/useCars';
@@ -139,9 +140,9 @@ export default function Main() {
               </div>
               <div className="text-gray-500 text-sm mb-2">{String(car.carType)}</div>
               <div className="flex flex-wrap gap-3 text-xs text-gray-400 mb-3">
-                <span>📅 {String(car.yearOfManufacture)}</span>
-                <span>🛣️ {String(car.mileage)}</span>
-                <span>⛽ {String(car.fuelType)}</span>
+                <span className="flex items-center gap-1"><CalendarDays className="w-4 h-4 text-gray-500" /> {String(car.yearOfManufacture)}</span>
+                <span className="flex items-center gap-1"><Gauge className="w-4 h-4 text-gray-500" /> {String(car.mileage)}</span>
+                <span className="flex items-center gap-1"><Fuel className="w-4 h-4 text-gray-500" /> {String(car.fuelType)}</span>
               </div>
               <p className="text-gray-600 text-sm flex-1">{String(car.description)}</p>
               <button
